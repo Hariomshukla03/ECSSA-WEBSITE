@@ -25,7 +25,7 @@ useGSAP(()=>{
                 <Link to="/events"><li className="cursor-pointer li hover:text-red-300">Events</li></Link>
                 <Link to="/about"><li className="cursor-pointer li hover:text-red-300">About</li></Link>
                 <Link to="/contact"><li className="cursor-pointer li hover:text-red-300">Contact</li></Link>
-                <Link to="/loginpage"><button className="li bg-red-400 border p-[4px] mt-[-4px] shadow-lg hover:after:h-[2px]">Login</button></Link>
+                <Link to="/loginpage"><button className="li  p-[4px] mt-[-4px] shadow-lg hover:after:h-[2px]">Login</button></Link>
               </ul>
             </div>
 
