@@ -1,35 +1,108 @@
 import { useGSAP } from "@gsap/react";
-import {gsap} from "gsap"
-import { useRef } from "react";
+import { gsap } from "gsap";
+import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/whitelogo.png"
+import logo from "../assets/whitelogo.png";
 
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef(null); // Reference for the navigation items
 
-const Header=()=>{
-  const el=useRef()
-useGSAP(()=>{
-  gsap.from(".li",{
-     y:-12,
-     opacity:0,
-     delay:0.5,
-  })
+  useGSAP(() => {
+    gsap.from(navRef.current.children, {
+      y: 100,
+      opacity: 0,
+      duration: 0.5,
+      
+    });
+  });
 
-})
-    return(
-        <div className="bg-black shadow-xl h-16 ">
-            <div>
-              <ul className="flex justify-around pt-5 ">
-                <li className="li"><img className="w-8 h-8" src={logo}/></li>
-                <Link to="/" ><li className="ml-64 li hover:text-red-300">Home</li></Link>
-                <Link to="/announcement"><li className="cursor-pointer li hover:text-red-300">Announcement</li></Link>
-                <Link to="/events"><li className="cursor-pointer li hover:text-red-300">Events</li></Link>
-                <Link to="/about"><li className="cursor-pointer li hover:text-red-300">About</li></Link>
-                <Link to="/contact"><li className="cursor-pointer li hover:text-red-300">Contact</li></Link>
-                <Link to="/loginpage"><button className="li  p-[4px] mt-[-4px] shadow-lg hover:after:h-[2px]">Login</button></Link>
-              </ul>
-            </div>
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
+  return (
+    <div className="bg-black shadow-xl h-16 w-full fixed top-0 left-0 z-50">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+       
+        <div className="flex items-center space-x-4">
+          <img className="w-8 h-8 sm:w-10 sm:h-10" src={logo} alt="Logo" />
         </div>
-    )
-}
+
+        
+        <div className="sm:hidden flex items-center" onClick={toggleMenu}>
+          <button className="text-white focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <ul ref={navRef} className="hidden sm:flex items-center space-x-8 text-white">
+          <li className="hover:text-red-300 transform transition-all duration-300">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="hover:text-red-300 transform transition-all duration-300">
+            <Link to="/announcement">Announcement</Link>
+          </li>
+          <li className="hover:text-red-300 transform transition-all duration-300">
+            <Link to="/events">Events</Link>
+          </li>
+          <li className="hover:text-red-300 transform transition-all duration-300">
+            <Link to="/about">About</Link>
+          </li>
+          <li className="hover:text-red-300 transform transition-all duration-300">
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li className="hover:text-red-300 transform transition-all duration-300">
+            <Link to="/loginpage">
+              <button className="p-[4px] mt-[-4px] shadow-lg hover:after:h-[2px]">Login</button>
+            </Link>
+          </li>
+        </ul>
+
+        <div
+          className={`${
+            menuOpen ? "block" : "hidden"
+          } sm:hidden absolute top-16 left-0 w-full bg-black text-white`}
+        >
+          <ul className="flex flex-col items-center space-y-4 py-4">
+            <li className="hover:text-red-300 transform transition-all duration-300">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="hover:text-red-300 transform transition-all duration-300">
+              <Link to="/announcement">Announcement</Link>
+            </li>
+            <li className="hover:text-red-300 transform transition-all duration-300">
+              <Link to="/events">Events</Link>
+            </li>
+            <li className="hover:text-red-300 transform transition-all duration-300">
+              <Link to="/about">About</Link>
+            </li>
+            <li className="hover:text-red-300 transform transition-all duration-300">
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li className="hover:text-red-300 transform transition-all duration-300">
+              <Link to="/loginpage">
+                <button className="p-[4px] mt-[-4px] shadow-lg hover:after:h-[2px]">Login</button>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Header;
