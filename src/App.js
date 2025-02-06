@@ -12,7 +12,9 @@ import Contact from "./Components/Contact";
 import Error from "./Components/Error";
 import LoginPage from "./Components/LoginPage";
 import Events from "./Components/Events";
-import Register from "./Components/Register";
+
+import DeadshotRegistration from "./Components/DeadshotRegister";
+import TypeRegister from "./Components/TypeRegister";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,8 +45,12 @@ const router = createBrowserRouter([
         path:"/Events",
         element:<Events/>
       },{
-        path:"/register",
-        element:<Register/>
+        path:"/deadshot/register",
+        element:<DeadshotRegistration/>
+      },
+      {
+        path:"/typesprint/register",
+        element:<TypeRegister/>
       }
     ],
     errorElement: <Error />,

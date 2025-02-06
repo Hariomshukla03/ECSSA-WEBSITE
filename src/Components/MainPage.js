@@ -6,7 +6,6 @@ import Objective from './Objective';
 import Contact from './Contact';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
-import logo from "../assets/whitelogo.png"; 
 import Pop from './Pop';
 const MainPage = () => {
   const el2 = useRef();
@@ -46,8 +45,8 @@ const MainPage = () => {
      
       <div ref={el2} className="flex justify-center mt-6 w-full">
         <img
-          className="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full"
-          src={logo}
+          className="w-28 h-28 mt-6 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full"
+          src="/assets/whitelogo.png"
           alt="ECSSA Logo"
         />
       </div>

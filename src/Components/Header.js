@@ -2,7 +2,6 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/whitelogo.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +25,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
        
         <div className="flex items-center space-x-4">
-          <img className="w-8 h-8 sm:w-10 sm:h-10" src={logo} alt="Logo" />
+          <img className="w-8 h-8 sm:w-10 sm:h-10" src="/assets/whitelogo.png" alt="Logo" />
         </div>
 
         

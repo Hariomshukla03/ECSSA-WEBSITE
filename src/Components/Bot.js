@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from "../assets/whitelogo.png";
 
 const Bot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +19,7 @@ const Bot = () => {
         </div>
         <img
           className={`w-12 h-12 transform transition-transform duration-600 ${!isOpen ? 'animate-bounce' : ''}`}
-          src={logo}
+          src="/assets/whitelogo.png"
           alt="Chat Bot"
         />
       </button>
