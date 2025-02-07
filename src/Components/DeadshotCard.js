@@ -28,13 +28,10 @@ const DeadshotCard = () => {
               Survival of the Fittest
             </div>
             <div className="flex-grow">
-              <p className="text-lg">
-                Round 1: Debugging Challenge <br />
-                Round 2: Coding Sprint
-                <br />
-                Round 3 Survival Challenge
-                <br />
-              </p>
+            <p className="text-lg">
+  Deadshot is a fast-paced shooting challenge that tests accuracy, speed, and reflexes. Hit the maximum targets in limited time and prove your precision skills!  
+</p>
+
             </div>
             <div className="flex justify-between items-center mt-auto">
               <Link to="/deadshot/register">

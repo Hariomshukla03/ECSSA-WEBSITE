@@ -1,5 +1,10 @@
 import React, { useState } from "react"
+import { useEffect } from "react";
 const TypeRegister = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -54,6 +59,8 @@ const TypeRegister = () => {
     }
   };
 
+ 
+
   return (
     <div className="min-h-screen mt-16 flex items-center justify-center bg-black text-white">
       <div className="bg-gray-900 p-8 rounded-xl shadow-lg max-w-lg w-full">
@@ -87,6 +94,7 @@ const TypeRegister = () => {
               <label className="block text-gray-300">Year of Study</label>
               <select name="yearOfStudy" value={formData.yearOfStudy} onChange={handleChange} className="w-full p-2 mt-2 bg-gray-800 text-white border border-gray-600 rounded-lg" required>
                 <option value="">Select Year</option>
+                <option value="FE">FE</option>
                 <option value="SE">SE</option>
                 <option value="TE">TE</option>
                 <option value="BE">BE</option>

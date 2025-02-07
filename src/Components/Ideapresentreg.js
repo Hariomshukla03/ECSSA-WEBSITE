@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 const IdeaPresentationRegistration = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to top when component mounts
+      }, []);
+      
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",

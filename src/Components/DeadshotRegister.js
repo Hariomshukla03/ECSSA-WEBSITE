@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useEffect } from "react";
+import React, { useState }  from "react";
 
 const DeadshotRegistration = () => {
   const [formData, setFormData] = useState({
@@ -85,6 +86,11 @@ const DeadshotRegistration = () => {
     }
   };
 
+ 
+    useEffect(() => {
+      window.scrollTo(0, 0); // Scroll to top when component mounts
+    }, []);
+
   return (
     <div className="min-h-screen mt-16 flex items-center justify-center bg-black text-white">
       <div className="bg-gray-900 p-8 rounded-xl shadow-lg max-w-lg w-full">
@@ -145,7 +151,7 @@ const DeadshotRegistration = () => {
                 required
               >
                 <option value="">Select Year</option>
-                <option value="SE">SE (1nd Year)</option>
+                <option value="FE">FE (1st Year)</option>
                 <option value="SE">SE (2nd Year)</option>
                 <option value="TE">TE (3rd Year)</option>
                 <option value="BE">BE (4th Year)</option>
