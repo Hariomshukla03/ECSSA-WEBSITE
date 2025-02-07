@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 
 const BotPenguinChat = () => {
   useEffect(() => {
-    // Prevent multiple script injections
     if (!document.getElementById("botpenguin-widget")) {
       const script = document.createElement("script");
       script.id = "botpenguin-widget";
@@ -12,11 +11,7 @@ const BotPenguinChat = () => {
     }
   }, []);
 
-  return (
-    <div>
-      {/* BotPenguin Chatbot will be automatically injected by the script */}
-    </div>
-  );
+  return null; // No UI needed, the chatbot loads itself
 };
 
 export default BotPenguinChat;
