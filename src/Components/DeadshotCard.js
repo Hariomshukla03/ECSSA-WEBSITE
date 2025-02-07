@@ -29,10 +29,7 @@ const DeadshotCard = () => {
             </div>
             <div className="flex-grow">
               <p className="text-lg">
-                Round 1: Debugging Challenge <br />
-                Round 2: Coding Sprint
-                <br />
-                Round 3 Survival Challenge
+              Deadshot Tournament: A high-stakes battle of reflexes and strategy. Outsmart, outshoot, and outlast opponents to claim victory. Only the strongest survive!
                 <br />
               </p>
             </div>
@@ -42,7 +39,7 @@ const DeadshotCard = () => {
                   Register
                 </button>
               </Link>
-              <span className="text-3xl">✨</span>
+              <span className="text-3xl">⚔️</span>
             </div>
           </div>
         </div>

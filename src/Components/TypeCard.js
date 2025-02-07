@@ -44,7 +44,7 @@ const TypeCard = () => {
                   Register
                 </button>
               </Link>
-              <span className="text-3xl">✨</span>
+              <span className="text-3xl">💻</span>
             </div>
           </div>
         </div>
