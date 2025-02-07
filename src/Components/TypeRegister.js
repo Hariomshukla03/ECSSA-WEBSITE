@@ -87,6 +87,7 @@ const TypeRegister = () => {
               <label className="block text-gray-300">Year of Study</label>
               <select name="yearOfStudy" value={formData.yearOfStudy} onChange={handleChange} className="w-full p-2 mt-2 bg-gray-800 text-white border border-gray-600 rounded-lg" required>
                 <option value="">Select Year</option>
+                <option value="FE">FE</option>
                 <option value="SE">SE</option>
                 <option value="TE">TE</option>
                 <option value="BE">BE</option>

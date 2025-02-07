@@ -145,7 +145,7 @@ const DeadshotRegistration = () => {
                 required
               >
                 <option value="">Select Year</option>
-                <option value="SE">SE (1nd Year)</option>
+                <option value="SE">FE (1nd Year)</option>
                 <option value="SE">SE (2nd Year)</option>
                 <option value="TE">TE (3rd Year)</option>
                 <option value="BE">BE (4th Year)</option>
