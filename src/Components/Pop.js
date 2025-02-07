@@ -1,22 +1,26 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from 'gsap'
+import { useGSAP } from "@gsap/react";
 const Pop = ({ handleClick }) => {
-  useEffect(()=>{
-    gsap.from(ref.current,{
-      z:0,
-      opacity:1
-    })
+  useGSAP(()=>{
+    gsap.from(ref.current, {
+      opacity: 0,
+      scale: 0.3,
+      duration: 0.8,
+      ease: "elastic.out(1, 0.5)",
+    });
 
   },[])
   const ref=useRef()
   return (
     <div
+    ref={ref}
       role="alert"
       className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-80"
       style={{ zIndex: 9999 }}
     >
-      <div ref={ref} className="mx-auto max-w-lg rounded-lg  bg-slate-900 p-4 shadow-lg sm:p-6 lg:p-8">
+      <div  className="mx-auto max-w-lg rounded-lg  bg-slate-900 p-4 shadow-lg sm:p-6 lg:p-8">
         <div className="flex items-center gap-4">
           <span className="shrink-0 rounded-full bg-red-600 p-2 text-white">
             <svg
