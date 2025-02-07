@@ -20,6 +20,9 @@ const DecodeDiscoverRegistration = () => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[])
 
   const handleSubmit = async (e) => {
     e.preventDefault();

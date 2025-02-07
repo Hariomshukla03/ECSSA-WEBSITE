@@ -12,6 +12,9 @@ const IdeaPresentationRegistration = () => {
     specialAssistance: "",
     consent: false,
   });
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[])
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const API_URL = "https://v1.nocodeapi.com/vaibhavslrtce/google_sheets/PfBOACbCSRMOrJqF?tabId=Sheet1";

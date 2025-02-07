@@ -13,6 +13,9 @@ const DeadshotRegistration = () => {
     familiarWithGame: "",
     teamStrategy: "",
   });
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[])
 
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);

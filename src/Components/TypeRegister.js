@@ -20,6 +20,9 @@ const TypeRegister = () => {
   };
 
   const handleSubmit = async (e) => {
+    useEffect(()=>{
+      window.scrollTo(0,0);
+    },[])
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.contactNumber || !formData.yearOfStudy || !formData.branch || !formData.consent) {
       setMessage("Please fill in all required fields and agree to the consent checkbox.");
