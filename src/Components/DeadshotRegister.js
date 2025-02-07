@@ -94,7 +94,7 @@ const DeadshotRegistration = () => {
 
         {submitted ? (
           <div className="text-center">
-            <img src="/submitted.png" alt="Submitted" className="mx-auto w-24 h-24 mb-4" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMzz_SevQoCoRmOARQ7bi649XowIEN6NzX7zu9gvHq1Xy_oy9m3gys0waN_N7TCwUzIiM&usqp=CAU" alt="Submitted" className="mx-auto w-24 h-24 mb-4" />
             <p className="text-yellow-400">Registration successful!</p>
             <a
               href={WHATSAPP_GROUP_LINK}
@@ -145,6 +145,7 @@ const DeadshotRegistration = () => {
                 required
               >
                 <option value="">Select Year</option>
+                <option value="SE">SE (1nd Year)</option>
                 <option value="SE">SE (2nd Year)</option>
                 <option value="TE">TE (3rd Year)</option>
                 <option value="BE">BE (4th Year)</option>

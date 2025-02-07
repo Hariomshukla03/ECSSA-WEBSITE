@@ -7,6 +7,7 @@ import Contact from './Contact';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import Pop from './Pop';
+import { Link } from 'react-router-dom';
 const MainPage = () => {
   const el2 = useRef();
   const el = useRef();
@@ -43,13 +44,16 @@ const MainPage = () => {
      {showMenu && <Pop handleClick={handleClick} />}
 
      
-      <div ref={el2} className="flex justify-center mt-6 w-full">
-        <img
-          className="w-28 h-28 mt-6 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full"
-          src="/assets/whitelogo.png"
-          alt="ECSSA Logo"
-        />
-      </div>
+     <div ref={el2} className="flex justify-center mt-6 w-full">
+  <Link to="/">
+    <img
+      className="w-28 h-28 mt-6 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full"
+      src="/assets/whitelogo.png"
+      alt="ECSSA Logo"
+    />
+  </Link>
+</div>
+
 
    
       <div className="text-center text-xl sm:text-xl md:text-2xl font-extrabold mt-4 leading-tight w-full max-w-full overflow-hidden break-words whitespace-normal">

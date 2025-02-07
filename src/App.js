@@ -15,6 +15,9 @@ import Events from "./Components/Events";
 
 import DeadshotRegistration from "./Components/DeadshotRegister";
 import TypeRegister from "./Components/TypeRegister";
+
+import DecodeDiscoverRegistration from "./Components/DecodeReg";
+import IdeaPresentationRegistration from "./Components/Ideapresentreg.js";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,7 +54,16 @@ const router = createBrowserRouter([
       {
         path:"/typesprint/register",
         element:<TypeRegister/>
-      }
+      },
+      {
+        path:"/decode/register",
+        element:<DecodeDiscoverRegistration/>
+      },
+      {
+        path:"/idea/register",
+        element:<IdeaPresentationRegistration/>
+      },
+      
     ],
     errorElement: <Error />,
   },
