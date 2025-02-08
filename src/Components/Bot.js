@@ -31,7 +31,7 @@ const Bot = () => {
               <iframe
                 style={{ height: '100%', width: '100%' }}
                 frameBorder="0"
-                src="https://www.chatbase.co/chatbot-iframe/xaDnWqPovLXCrfLdUkh_E"
+                src="https://app.droxy.ai/guest-agent/67a7a7b1d02a9e3d54a9383e"
               />
             </div>
           </div>
