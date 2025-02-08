@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 const TypeRegister = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -19,10 +19,10 @@ const TypeRegister = () => {
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[])
   const handleSubmit = async (e) => {
-    useEffect(()=>{
-      window.scrollTo(0,0);
-    },[])
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.contactNumber || !formData.yearOfStudy || !formData.branch || !formData.consent) {
       setMessage("Please fill in all required fields and agree to the consent checkbox.");

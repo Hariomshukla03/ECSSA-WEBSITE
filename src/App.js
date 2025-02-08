@@ -63,6 +63,7 @@ const router = createBrowserRouter([
         path:"/idea/register",
         element:<IdeaPresentationRegistration/>
       },
+     
       
     ],
     errorElement: <Error />,
