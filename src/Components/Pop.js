@@ -43,8 +43,9 @@ const Pop = ({ handleClick }) => {
         </div>
 
         <p className="mt-4 text-gray-300">
-          ECSSA events are here! 🎉 Fun, challenges, and epic moments await.<br />
-          <br />
+          ECSSA events are here! 🎉 Fun, challenges, and epic moments await.<br /><br/>
+          TECH XR
+          <br /><br/>
           👉 Only for ECS students!<br />
           👉 No excuses, just register!<br />
           <br />
