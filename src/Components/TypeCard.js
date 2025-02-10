@@ -14,9 +14,10 @@ const TypeCard = () => {
               <div className="text-3xl font-bold">TypeSprint</div>
             </div>
             <div className="mt-4 z-10">
-              <p className="text-lg font-bold">Monday, February 10th, 20255</p>
-              <p className="text-lg font-bold">3:00 PM - 5:00 PM</p>
-              <p className="text-lg font-bold">Venue - Lab 311 </p>
+              <p className="text-lg font-bold">Form Closed!</p>
+              <br/>
+              <p className="text-lg font-bold">The form submission has been closed. The results will be announced soon.</p><br/>
+              <p className="text-lg font-bold"> Stay tuned for updates.</p>
             </div>
             <div className="mt-auto z-10">
               <p className="text-sm opacity-75">Hover to flip!</p>
@@ -29,7 +30,7 @@ const TypeCard = () => {
             <div className="text-2xl font-bold mb-4">TypeSprint</div>
             <div className="flex-grow">
               <p className="text-lg">
-                Setup: System with typing software
+                
                 <br />
                 Round 1: Typing Challenge (Speed & Accuracy)
                 <br />
@@ -39,11 +40,11 @@ const TypeCard = () => {
               </p>
             </div>
             <div className="flex justify-between items-center mt-auto">
-              <Link to="/typesprint/register">
+              
                 <button className="px-4 py-2 bg-white text-purple-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors cursor-pointer">
-                  Register
+                  Registeration Closed
                 </button>
-              </Link>
+              
               <span className="text-3xl">💻</span>
             </div>
           </div>
