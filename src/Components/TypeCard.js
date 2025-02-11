@@ -41,8 +41,8 @@ const TypeCard = () => {
             </div>
             <div className="flex justify-between items-center mt-auto">
               
-                <button className="px-4 py-2 bg-white text-purple-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors cursor-pointer">
-                  Registeration Closed
+            <button className="px-4 py-2 bg-gray-600 text-white rounded-lg font-semibold cursor-not-allowed" disabled>
+                  Registration Closed
                 </button>
               
               <span className="text-3xl">💻</span>

@@ -33,10 +33,10 @@ const DeadshotCard = () => {
               <div className="text-3xl font-bold">Survival of the Fittest (Deadshot)</div>
             </div>
             <div className="mt-4 z-10">
-              <p className="text-lg font-bold">Ends in: {formatTime(timeLeft)}</p><br/>
-              <p className="text-lg font-bold">Tuesday, February 11th, 2025</p>
-              <p className="text-lg font-bold">3:00 PM - 5:00 PM</p>
-              <p className="text-lg font-bold">Venue - Lab 311 </p>
+            <p className="text-lg font-bold">Form Closed!</p>
+              <br/>
+              <p className="text-lg font-bold">The form submission has been closed. The results will be announced soon.</p><br/>
+              <p className="text-lg font-bold"> Stay tuned for updates.</p>
             </div>
             <div className="mt-auto z-10">
               {timeLeft > 0 ? (
@@ -58,17 +58,11 @@ const DeadshotCard = () => {
               </p>
             </div>
             <div className="flex justify-between items-center mt-auto">
-              {timeLeft > 0 ? (
-                <Link to="/deadshot/register">
-                  <button className="px-4 py-2 bg-white text-purple-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors cursor-pointer">
-                    Register
-                  </button>
-                </Link>
-              ) : (
+              
                 <button className="px-4 py-2 bg-gray-600 text-white rounded-lg font-semibold cursor-not-allowed" disabled>
                   Registration Closed
                 </button>
-              )}
+             
               <span className="text-3xl">⚔️</span>
             </div>
           </div>
