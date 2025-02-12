@@ -48,9 +48,14 @@ const DecodeCard = () => {
               <div className="text-3xl font-bold">DECODE & DISCOVER</div>
             </div>
             <div className="mt-4 z-10">
-              <p className="text-lg font-bold">Monday, February 12th, 2025</p>
-              <p className="text-lg font-bold">3:00 PM - 5:00 PM</p>
-              <p className="text-lg font-bold">Venue - Lab 311</p>
+              <p className="text-lg font-bold">Form Closed!</p>
+              <br />
+              <p className="text-lg font-bold">
+                The form submission has been closed. The results will be
+                announced soon.
+              </p>
+              <br />
+              <p className="text-lg font-bold"> Stay tuned for updates.</p>
             </div>
             <div className="mt-auto z-10">
               <p className="text-sm opacity-75">Hover to flip!</p>
@@ -58,46 +63,27 @@ const DecodeCard = () => {
           </div>
         </div>
 
-        {/* Back Side */}
-        <div className="absolute w-full h-full rounded-xl bg-gradient-to-br from-purple-400 to-indigo-600 p-6 text-white [transform:rotateX(180deg)] [backface-visibility:hidden] z-20">
-          <div className="flex flex-col h-full">
-            <div className="text-2xl font-bold mb-4">Event Overview</div>
-            <div className="flex-grow">
-              <p className="text-lg">
-                Decode & Discover challenges participants to analyze research papers, extract key insights, and summarize findings. 🧩🔍📑
-              </p>
-            </div>
+       
+          <div className="absolute w-full h-full rounded-xl bg-gradient-to-br from-purple-400 to-indigo-600 p-6 text-white [transform:rotateX(180deg)] [backface-visibility:hidden] z-20 flex flex-col">
+            <div className="text-2xl font-bold">Event Overview</div>
+            <p className="text-lg mt-4 flex-grow">
+              Decode & Discover challenges participants to analyze research
+              papers, extract key insights, and summarize findings. 🧩🔍📑
+            </p>
 
-            {/* Countdown Timer */}
-            <div className="text-center text-xl font-bold mt-2">
-              {isExpired ? (
-                <p className="text-red-500">Registration Closed</p>
-              ) : (
-                <p>
-                  ⏳ {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s left
-                </p>
-              )}
-            </div>
-
-            <div className="flex justify-between items-center mt-auto">
-              <Link to="/decode/register">
-                <button
-                  className={`px-4 py-2 rounded-lg font-semibold transition-colors cursor-pointer ${
-                    isExpired
-                      ? "bg-gray-400 text-gray-700 cursor-not-allowed"
-                      : "bg-white text-indigo-600 hover:bg-opacity-90"
-                  }`}
-                  disabled={isExpired}
-                >
-                  Register
-                </button>
-              </Link>
+            <div className="mt-auto flex justify-between items-center">
+              <button
+                className="px-4 py-2 bg-gray-600 text-white rounded-lg font-semibold cursor-not-allowed"
+                disabled
+              >
+                Registration Closed
+              </button>
               <span className="text-3xl">📖</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
