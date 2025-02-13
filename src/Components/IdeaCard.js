@@ -16,9 +16,14 @@ const IdeaCard = () => {
               <div className="text-3xl font-bold">IDEA PRESENTATION</div>
             </div>
             <div className="mt-4 z-10">
-              <p className="text-lg font-bold">Tuesday, February 13th, 2025</p>
-              <p className="text-lg font-bold">3:00 PM - 5:00 PM</p>
-              <p className="text-lg font-bold">Venue - 311</p>
+            <p className="text-lg font-bold">Form Closed!</p>
+              <br />
+              <p className="text-lg font-bold">
+                The form submission has been closed. The results will be
+                announced soon.
+              </p>
+              <br />
+              <p className="text-lg font-bold"> Stay tuned for updates.</p>
             </div>
             <div className="mt-auto z-10">
               <p className="text-sm opacity-75">Hover to flip!</p>
@@ -42,11 +47,11 @@ const IdeaCard = () => {
               </p>
             </div>
             <div className="flex justify-between items-center mt-auto">
-              <Link to="/idea/register">
-                <button className="px-4 py-2 bg-white text-green-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors cursor-pointer">
-                  Register
+              
+              <button className="px-4 py-2 bg-gray-600 text-white rounded-lg font-semibold cursor-not-allowed" disabled>
+                  Registration Closed
                 </button>
-              </Link>
+              
               <span className="text-3xl">🚀</span>
             </div>
           </div>
