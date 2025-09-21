@@ -29,7 +29,7 @@ const Events = () => {
   return (
     <div className="h-auto bg-black text-white">
       <h1 ref={el} className="text-center pt-16 font-bold border-b-2 pb-4 text-2xl sm:text-3xl md:text-2xl lg:text-4xl">
-        Events
+       Past Events
       </h1>
       
       <div ref={el2}>

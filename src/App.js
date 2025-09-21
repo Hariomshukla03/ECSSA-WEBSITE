@@ -12,12 +12,10 @@ import Contact from "./Components/Contact";
 import Error from "./Components/Error";
 import LoginPage from "./Components/LoginPage";
 import Events from "./Components/Events";
+import DeadshotWinner from "./Components/DeadshotWinner.js";
 
-import DeadshotRegistration from "./Components/DeadshotRegister";
-import TypeRegister from "./Components/TypeRegister";
-
-import DecodeDiscoverRegistration from "./Components/DecodeReg";
-import IdeaPresentationRegistration from "./Components/Ideapresentreg.js";
+import AdminDash from "./Components/AdminDash.js";
+import Winner from "./Components/Winner.js";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,32 +35,25 @@ const router = createBrowserRouter([
         element: <AboutPage />,
       },
       {
-        path: "/contact",
-        element: <Contact />,
+        path: "/winner",
+        element: <Winner />,
       },
       {
-        path:"/loginpage",
+        path:"/login",
         element:<LoginPage/>
       },
       {
         path:"/Events",
         element:<Events/>
-      },{
-        path:"/deadshot/register",
-        element:<DeadshotRegistration/>
       },
       {
-        path:"/typesprint/register",
-        element:<TypeRegister/>
+        path:"deadshot/win",
+        element:<DeadshotWinner/>
       },
       {
-        path:"/decode/register",
-        element:<DecodeDiscoverRegistration/>
-      },
-      {
-        path:"/idea/register",
-        element:<IdeaPresentationRegistration/>
-      },
+        path:"/admindash",
+        element:<AdminDash/>
+      }
      
       
     ],
@@ -75,6 +66,7 @@ function App() {
     <div className="bg-black text-white">
       <RouterProvider router={router} />
     </div>
+  
   );
 }
 
