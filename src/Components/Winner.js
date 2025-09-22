@@ -32,7 +32,7 @@ const Winner = () => {
 
   useEffect(() => {
     fetchWinners();
-  },[]);
+  },[winner]);
 
   // Delete winner
   const handleDelete = async (id) => {

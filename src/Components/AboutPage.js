@@ -150,37 +150,69 @@ const AboutPage = () => {
           Members
         </h1>
 
-        <Marquee className="pt-8 w-full" pauseOnHover>
-          {Array.isArray(member) &&
-            member.map((member) => (
-              <div
-                key={member._id}
-                className="w-60 h-72 bg-[#1F2937] m-4 p-4 sm:w-72 md:w-80 lg:w-96 flex flex-col items-center justify-center"
-              >
-                <div className="w-36 h-36 flex justify-center items-center rounded-full border-2 bg-gray-100 p-1">
-                  <img
-                    className="w-36 h-36 rounded-full"
-                    src={member.memberImageUrl}
-                    alt="member"
-                  />
-                </div>
-                <div className="text-center">
-                  <h1 className="text-lg font-semibold">{member.memberName}</h1>
-                  <p className="p-1 text-sm">{member.memberPosition}</p>
-                </div>
-                {loginAdmin&&<div className="flex">
-                  <MdDelete
-                    className="mt-2 size-6 cursor-pointer hover:text-red-500"
-                    onClick={() => handleDelete(member._id)}
-                  />
-                  <FaEdit
-                    className="mt-2 mx-4 size-6 cursor-pointer hover:text-blue-400"
-                    onClick={() => handleEdit(member._id)}
-                  />
-                </div>}
+      <Marquee className="pt-8 w-full" pauseOnHover>
+  {Array.isArray(member) &&
+    member.map((member) => (
+      <div key={member._id} className="m-4">
+        {/* 3D Black Member Card (same size as teacher card) */}
+        <div className="relative w-64 h-64 overflow-hidden rounded-xl 
+                        bg-gradient-to-b from-black/80 via-black/60 to-black/90
+                        shadow-[0_15px_25px_rgba(0,0,0,0.5),0_10px_10px_rgba(0,0,0,0.3)]">
+          
+          {/* Top Circles (Uiverse style) */}
+          <div className="flex p-2 gap-1 absolute top-0 left-0 z-[2]">
+            <span className="bg-blue-500 w-3 h-3 rounded-full inline-block"></span>
+            <span className="bg-purple-500 w-3 h-3 rounded-full inline-block"></span>
+            <span className="bg-pink-500 w-3 h-3 rounded-full inline-block"></span>
+          </div>
+
+          {/* Light reflection overlay */}
+          <div className="absolute inset-0 rounded-xl pointer-events-none"
+               style={{
+                 background: 'linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%)'
+               }}></div>
+
+          {/* Card overlay with content */}
+          <div className="absolute flex flex-col items-center justify-center text-white z-[1] rounded-xl inset-0.5 bg-black/60 shadow-inner shadow-black/30">
+            
+            {/* Member Image */}
+            <div className="w-28 h-28 flex justify-center items-center rounded-full border-2 border-white p-1 mb-2 mt-4">
+              <img
+                className="w-28 h-28 rounded-full"
+                src={member.memberImageUrl}
+                alt="member"
+              />
+            </div>
+
+            {/* Member Info */}
+            <div className="text-center">
+              <h1 className="text-lg font-semibold">{member.memberName}</h1>
+              <p className="p-1 text-sm">{member.memberPosition}</p>
+            </div>
+
+            {/* Admin Actions */}
+            {loginAdmin && (
+              <div className="flex mt-2">
+                <MdDelete
+                  className="size-6 cursor-pointer hover:text-red-500"
+                  onClick={() => handleDelete(member._id)}
+                />
+                <FaEdit
+                  className="mx-4 size-6 cursor-pointer hover:text-blue-400"
+                  onClick={() => handleEdit(member._id)}
+                />
               </div>
-            ))}
-        </Marquee>
+            )}
+          </div>
+
+          {/* Background blur effect */}
+          <div className="absolute w-56 h-48 bg-white/10 blur-[50px] -left-1/2 -top-1/2"></div>
+        </div>
+      </div>
+    ))}
+</Marquee>
+
+
 
         <Developby />
       </div>
