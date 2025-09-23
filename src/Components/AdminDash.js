@@ -102,7 +102,7 @@ const AdminDash = () => {
 
        
         <div
-          className={`fixed top-0 left-0 w-64 h-full bg-gray-800 p-6 z-40 transform transition-transform duration-300 ${
+          className={`fixed mt-8 top-0 left-0 w-64 h-full bg-gray-800 p-6 z-40 transform transition-transform duration-300 ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >

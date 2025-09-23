@@ -35,6 +35,7 @@ const Header = () => {
     setMenuOpen(false);
   };
   const loginAdmin=useSelector((store)=>store.loginAdmin)
+  
 
   return (
     <div className="bg-black shadow-xl  h-16 w-full fixed top-0 left-0 z-50">
@@ -73,7 +74,7 @@ const Header = () => {
         {/* Desktop Navigation */}
        
         <ul ref={navRef} className="hidden sm:flex items-center space-x-8 text-white">
-       
+          {loginAdmin && <li><Link to="/admindash" onClick={closeMenu}>Admin Dashboard</Link></li>}
           <li><Link to="/announcement" onClick={closeMenu}>Announcement</Link></li>
           <li><Link to="/events" onClick={closeMenu}>Events</Link></li>
           <li><Link to="/about" onClick={closeMenu}>About</Link></li>
@@ -88,6 +89,7 @@ const Header = () => {
         {menuOpen && (
           <div className="sm:hidden absolute top-16 left-0 w-full bg-black text-white">
             <ul className="flex flex-col items-center space-y-4 py-4">
+              {loginAdmin && <li><Link to="/admindash" onClick={closeMenu}>Admin Dashboard</Link></li>}
               <li><Link to="/announcement" onClick={closeMenu}>Announcement</Link></li>
               <li><Link to="/events" onClick={closeMenu}>Events</Link></li>
               <li><Link to="/about" onClick={closeMenu}>About</Link></li>
