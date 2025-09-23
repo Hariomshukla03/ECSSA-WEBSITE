@@ -52,7 +52,7 @@ const Objective = () => {
   });
 
   return (
-    <div className="h-auto sm:h-[40rem] overflow-hidden px-4 sm:px-6 lg:px-12">
+    <div className="h-auto sm:h-[20rem] overflow-hidden px-4 sm:px-6 lg:px-12">
      
       <div className="mb-8">
         <h1 className="text-center font-bold text-xl sm:text-2xl md:text-3xl mb-6 border-b-2">
