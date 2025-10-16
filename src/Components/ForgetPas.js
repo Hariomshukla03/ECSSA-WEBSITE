@@ -4,8 +4,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../utils/Data";
 
 const ForgetPas = () => {
-  const [emailId, SetEmailId] = useState("hariom.r.shukla@slrtce.in");
-  const [password, SetPassword] = useState("User@123456789");
+  const [emailId, SetEmailId] = useState("");
+  const [password, SetPassword] = useState("");
   const [msg, SetMsg] = useState("");
   const {token}=useParams();
   const navigate=useNavigate()
