@@ -26,6 +26,10 @@ const AdminMember = () => {
         setMessage(res.data.message);
         navigate("/about");
       } else {
+        if (!memberName || !memberPosition || !preview) {
+    setMessage("First fill the detail");
+    return;
+  }
         const res = await axios.post(
           BASE_URL + "/member/add",
           {

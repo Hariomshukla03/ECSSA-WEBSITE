@@ -37,7 +37,13 @@ const AdminWinner = () => {
         setTimeout(() => {
           navigate("/winner");
         }, 2000);
-      } else {
+      } else {if (!winnerName||
+            !winnerProfileUrl||
+            !winnerEvent||
+            !winnerYear) {
+    setMessage("First Fill All The  detail");
+    return;
+  }
         const res = await axios.post(
           BASE_URL + "/winner/add",
           { winnerName, winnerProfileUrl, winnerEvent, winnerYear },
@@ -114,6 +120,7 @@ const AdminWinner = () => {
             </label>
             <input
               type="text"
+              required
               className="p-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={winnerName}
               onChange={(e) => setwinnerName(e.target.value)}
@@ -126,6 +133,7 @@ const AdminWinner = () => {
             </label>
             <input
               type="text"
+              required
               className="p-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={winnerEvent}
               onChange={(e) => setwinnerEvent(e.target.value)}

@@ -16,6 +16,7 @@ import DeadshotWinner from "./Components/DeadshotWinner.js";
 
 import AdminDash from "./Components/AdminDash.js";
 import Winner from "./Components/Winner.js";
+import ForgetPas from "./Components/ForgetPas.js";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path:"/admindash",
         element:<AdminDash/>
+      },
+      {
+        path:"/forget-password/:token",
+        element:<ForgetPas/>
       }
      
       

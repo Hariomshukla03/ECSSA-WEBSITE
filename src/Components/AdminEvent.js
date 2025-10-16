@@ -77,6 +77,16 @@ const AdminEvent = () => {
           navigate("/announcement");
         }, 300);
       } else {
+        if (!eventName||
+            !eventDate||
+            !eventLastDate||
+            !eventVenue||
+            !eventReq||
+            !photoUrl||
+            !eventForm) {
+    setMessage("First Fill All The  detail");
+    return;
+  }
         const res = await axios.post(
           `${BASE_URL}/event/add`,
           {

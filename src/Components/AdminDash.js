@@ -31,7 +31,7 @@ const AdminDash = () => {
       
       <div className="hidden sm:flex h-screen overflow-hidden bg-gray-100 pt-16">
         
-        <div className="bg-gray-800 w-64 p-6 mt-16 h-full fixed">
+        <div className="bg-gray-800 w-64 p-6  h-full fixed">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
             Admin Dashboard
           </h2>

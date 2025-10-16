@@ -96,7 +96,7 @@ const AboutPage = () => {
   version="1.1"
   viewBox="0 0 1440 560"
   preserveAspectRatio="none"
-  className="w-full h-full"
+  className="w-full h-full "
 >
   <g mask="url(#SvgjsMask1000)" fill="none">
     <rect width="1440" height="580" fill="black"></rect>
@@ -159,12 +159,7 @@ const AboutPage = () => {
                         bg-gradient-to-b from-black/80 via-black/60 to-black/90
                         shadow-[0_15px_25px_rgba(0,0,0,0.5),0_10px_10px_rgba(0,0,0,0.3)]">
           
-          {/* Top Circles (Uiverse style) */}
-          <div className="flex p-2 gap-1 absolute top-0 left-0 z-[2]">
-            <span className="bg-blue-500 w-3 h-3 rounded-full inline-block"></span>
-            <span className="bg-purple-500 w-3 h-3 rounded-full inline-block"></span>
-            <span className="bg-pink-500 w-3 h-3 rounded-full inline-block"></span>
-          </div>
+          
 
           {/* Light reflection overlay */}
           <div className="absolute inset-0 rounded-xl pointer-events-none"

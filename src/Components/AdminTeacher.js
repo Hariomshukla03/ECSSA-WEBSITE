@@ -35,6 +35,10 @@ const AdminTeacher = () => {
           navigate("/about");
         }, 2000);
       } else {
+        if (!teacherName || !teacherPosition || !teacherImageUrl) {
+    setMessage("First fill the detail");
+    return;
+  }
         const res = await axios.post(
           BASE_URL + "/teacher/add",
           { teacherName, teacherPosition, teacherImageUrl },
@@ -115,6 +119,7 @@ const AdminTeacher = () => {
             </label>
             <input
               type="text"
+              required
               className="p-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={teacherName}
               onChange={(e) => setteacherName(e.target.value)}
@@ -127,6 +132,7 @@ const AdminTeacher = () => {
             </label>
             <input
               type="text"
+              required
               className="p-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={teacherPosition}
               onChange={(e) => setteacherPosition(e.target.value)}

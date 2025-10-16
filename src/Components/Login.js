@@ -5,14 +5,17 @@ import { BASE_URL } from "../utils/Data";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../utils/loginSlice";
+import Particles from "./Particles";
 
 const Form = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loginAdmin = useSelector((store) => store.loginAdmin);
-  const [emailId, SetEmailId] = useState("hs3@gmail.com");
-  const [password, SetPassword] = useState("Pass@12345678");
+  const [emailId, SetEmailId] = useState("");
+  const [password, SetPassword] = useState("");
   const [msg, SetMsg] = useState("");
+  const [forget, SetForget] = useState(false);
+  
 
   const HandleLogin = async (event) => {
     event.preventDefault();
@@ -33,8 +36,36 @@ const Form = () => {
     }
   };
 
+  const handleForgetPass = async (event) => {
+    event.preventDefault();
+    SetMsg("");
+    try {
+      const res = await axios.post(
+        BASE_URL + "/forget-password",
+        { emailId },
+        { withCredentials: true }
+      );
+      SetMsg(res?.data?.message);
+    } catch (error) {
+      SetMsg(error?.response?.data?.message);
+    }
+  };
+
   return (
     <>
+      <div className="fixed top-0 left-0 w-full h-full z-10">
+        <Particles
+          particleColors={["#e63946", "#e63946"]}
+          particleCount={400}
+          particleSpread={50}
+          speed={0.02}
+          particleBaseSize={500}
+          moveParticlesOnHover={false}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
+
       <StyledWrapper>
         {msg && (
           <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex w-[250px] h-20 overflow-hidden bg-white shadow-lg rounded-lg">
@@ -61,18 +92,16 @@ const Form = () => {
               />
             </svg>
             <div className="px-2 py-1 overflow-hidden w-full">
-              <p className="text-[indianred] text-base font-bold leading-5 truncate">
-                Error !
-              </p>
+              <p className="text-[indianred] text-base font-bold leading-5 truncate"></p>
               <p className="text-[15px] my-2 leading-4 text-zinc-400 break-words">
-                Oh no! <br />
+                <br />
                 {msg}
               </p>
             </div>
           </div>
         )}
 
-        <form className="form" onSubmit={HandleLogin}>
+        <form className="form">
           <span className="input-span">
             <label className="label">Email</label>
             <input
@@ -84,27 +113,36 @@ const Form = () => {
               onChange={(e) => SetEmailId(e.target.value)}
             />
           </span>
-          <span className="input-span">
-            <label htmlFor="password" className="label">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={password}
-              onChange={(e) => {
-                SetPassword(e.target.value);
-              }}
-            />
-          </span>
-          {/* <span className="span text-red-400">{msg}</span> */}
+
+          {!forget && (
+            <span className="input-span">
+              <label htmlFor="password" className="label">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={password}
+                onChange={(e) => SetPassword(e.target.value)}
+              />
+            </span>
+          )}
+
           <button
-            className="submit w-full py-3 text-lg font-semibold bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center justify-center"
+            className="submit w-full py-3 text-lg font-semibold flex items-center justify-center"
             type="submit"
+            onClick={!forget ? HandleLogin : handleForgetPass}
           >
-            Login
+            {!forget ? "Login" : "Forget password"}
           </button>
+
+          <span
+            className="cursor-pointer m-auto text-[#EB3D4F]"
+            onClick={forget ? () => SetForget(false) : () => SetForget(true)}
+          >
+            {!forget ? "forget password?" : "login"}
+          </span>
 
           <span className="span">This is only for Admin</span>
         </form>
@@ -112,25 +150,36 @@ const Form = () => {
     </>
   );
 };
+
 const StyledWrapper = styled.div`
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  z-index: 20;
+
   .form {
-    background-color: #000;
-    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 480px; /* ✅ Exact width like Forget Password */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 2rem;
-    width: 100%;
-    max-width: 320px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 1.3rem;
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.2);
+    transition: all 0.3s ease;
   }
 
   .form:hover {
+    box-shadow: 0 12px 35px rgba(230, 57, 70, 0.35);
     transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
   }
 
   .input-span {
@@ -142,58 +191,56 @@ const StyledWrapper = styled.div`
   .label {
     font-size: 0.95rem;
     margin-bottom: 0.3rem;
-    color: #ccc;
+    color: #bbb;
     font-weight: 500;
   }
 
   input[type="email"],
   input[type="password"] {
     width: 100%;
-    padding: 0.75rem 1rem;
-    background-color: #111;
+    padding: 0.8rem 1rem;
+    background: rgba(20, 20, 20, 0.8);
     color: #fff;
-    border: 1px solid #333;
-    border-radius: 8px;
+    border: 1px solid rgba(230, 57, 70, 0.4);
+    border-radius: 10px;
     font-size: 1rem;
-    transition: border 0.3s;
+    transition: all 0.3s;
   }
 
   input[type="email"]:focus,
   input[type="password"]:focus {
-    border-color: #888;
+    border-color: #e63946;
+    box-shadow: 0 0 8px rgba(230, 57, 70, 0.6);
     outline: none;
   }
 
   .submit {
-    background-color: #1a1a1a;
+    background: linear-gradient(135deg, #e63946, #ff4d6d);
     color: white;
     padding: 0.9rem;
     border: none;
-    width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s;
   }
 
   .submit:hover {
-    background-color: #444;
+    background: linear-gradient(135deg, #ff4d6d, #e63946);
+    box-shadow: 0 0 12px rgba(255, 77, 109, 0.7);
   }
 
   .submit:active {
-    background-color: #222;
+    background: #c91d35;
+    transform: scale(0.97);
   }
 
   .span {
     margin-top: 0.5rem;
     font-size: 0.85rem;
     color: #aaa;
-  }
-
-  .span a {
-    color: #fff;
-    text-decoration: underline;
+    text-align: center;
   }
 `;
 

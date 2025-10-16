@@ -64,6 +64,7 @@ const navigate=useNavigate()
 const handleDelete=async(id)=>{
   const res=await axios.delete(BASE_URL+"/teacher/delete/"+id,{withCredentials:true})
   dispatch(deleteTeacher(id))
+  navigate("/about")
 }
 const handleEdit=async(id)=>{
   const res=await axios.get(BASE_URL+"/teacher/view/"+id,{withCredentials:true})
@@ -84,14 +85,8 @@ const handleEdit=async(id)=>{
                         bg-gradient-to-b from-black/80 via-black/60 to-black/90
                         shadow-[0_15px_25px_rgba(0,0,0,0.5),0_10px_10px_rgba(0,0,0,0.3)]">
 
-          {/* Top Circles */}
-          <div className="flex p-2 gap-1 absolute top-0 left-0 z-[2]">
-            <span className="bg-blue-500 w-3 h-3 rounded-full inline-block"></span>
-            <span className="bg-purple-500 w-3 h-3 rounded-full inline-block"></span>
-            <span className="bg-pink-500 w-3 h-3 rounded-full inline-block"></span>
-          </div>
+          
 
-          {/* Light reflection overlay */}
           <div className="absolute inset-0 rounded-xl pointer-events-none"
                style={{
                  background: 'linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%)'

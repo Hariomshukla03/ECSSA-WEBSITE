@@ -34,7 +34,7 @@ const AnnouncementPage = () => {
     });
 
     if (res) {
-      dispatch(events(res.data));
+      dispatch(events(res?.data));
     }
   };
 
@@ -48,9 +48,8 @@ const AnnouncementPage = () => {
         <Squares
           speed={0.5}
           squareSize={80}
-          direction="diagonal" // up, down, left, right, diagonal
+          direction="diagonal" 
           borderColor="#fff"
-          hoverFillColor="#222"
         />
       </div>
 
