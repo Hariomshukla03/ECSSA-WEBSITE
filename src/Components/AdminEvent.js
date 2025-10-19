@@ -101,9 +101,7 @@ const AdminEvent = () => {
           { withCredentials: true }
         );
         setMessage(res.data.message);
-        setTimeout(() => {
-          window.location.reload();
-        }, 300);
+        
       }
     } catch (err) {
       console.log(err);
