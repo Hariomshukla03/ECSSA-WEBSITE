@@ -90,50 +90,51 @@ const AboutPage = () => {
   return (
     <div className="relative mt-[3rem] bg-black min-h-screen overflow-hidden">
      
-      <div className="absolute top-0 left-0 w-full h-full z-10 pointer-events-none">
-      <svg
-  xmlns="http://www.w3.org/2000/svg"
-  version="1.1"
-  viewBox="0 0 1440 560"
-  preserveAspectRatio="none"
-  className="w-full h-full "
->
-  <g mask="url(#SvgjsMask1000)" fill="none">
-    <rect width="1440" height="580" fill="black"></rect>
-    <path
-      d="M887.1 651.87C1036.77 598.61 1066.74 160.84 1281.51 153.62 1496.28 146.4 1569.85 307.58 1675.92 310.42"
-      stroke="rgba(194, 33, 33, 0.58)"
-      strokeWidth="1"
-    ></path>
-    <path
-      d="M633.79 599.42C767.18 598.6 876.25 483.37 1153.16 477.22 1430.08 471.07 1527.16 221.39 1672.54 214.02"
-      stroke="rgba(194, 33, 33, 0.58)"
-      strokeWidth="1"
-    ></path>
-    <path
-      d="M223.55 564.14C414.17 558.97 554.88 289.31 931.91 281.27 1308.95 273.23 1453.71 49.12 1640.28 46.07"
-      stroke="rgba(194, 33, 33, 0.58)"
-      strokeWidth="1"
-    ></path>
-    <path
-      d="M60.67 585.23C253.96 578.91 392.55 289.13 771.76 280.68 1150.97 272.23 1296.48 59.31 1482.85 56.68"
-      stroke="rgba(194, 33, 33, 0.58)"
-      strokeWidth="1"
-    ></path>
-    <path
-      d="M379.71 619.65C538.2 563.99 560.74 108.79 798.73 94.41 1036.72 80.03 1008.24 164.41 1217.75 164.41 1427.26 164.41 1530.56 94.65 1636.77 94.41"
-      stroke="rgba(194, 33, 33, 0.58)"
-      strokeWidth="1"
-    ></path>
-  </g>
-  <defs>
-    <mask id="SvgjsMask1000">
-      <rect width="1440" height="560" fill="#ffffff"></rect>
-    </mask>
-  </defs>
-</svg>
+      <div className="fixed top-0 left-0 w-screen h-screen z-10 pointer-events-none overflow-hidden">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    viewBox="0 0 1440 560"
+    preserveAspectRatio="xMidYMid slice"
+    className="w-full h-full object-cover"
+  >
+    <g mask="url(#SvgjsMask1000)" fill="none">
+      <rect width="1440" height="580" fill="black"></rect>
+      <path
+        d="M887.1 651.87C1036.77 598.61 1066.74 160.84 1281.51 153.62 1496.28 146.4 1569.85 307.58 1675.92 310.42"
+        stroke="rgba(194, 33, 33, 0.58)"
+        strokeWidth="1"
+      />
+      <path
+        d="M633.79 599.42C767.18 598.6 876.25 483.37 1153.16 477.22 1430.08 471.07 1527.16 221.39 1672.54 214.02"
+        stroke="rgba(194, 33, 33, 0.58)"
+        strokeWidth="1"
+      />
+      <path
+        d="M223.55 564.14C414.17 558.97 554.88 289.31 931.91 281.27 1308.95 273.23 1453.71 49.12 1640.28 46.07"
+        stroke="rgba(194, 33, 33, 0.58)"
+        strokeWidth="1"
+      />
+      <path
+        d="M60.67 585.23C253.96 578.91 392.55 289.13 771.76 280.68 1150.97 272.23 1296.48 59.31 1482.85 56.68"
+        stroke="rgba(194, 33, 33, 0.58)"
+        strokeWidth="1"
+      />
+      <path
+        d="M379.71 619.65C538.2 563.99 560.74 108.79 798.73 94.41 1036.72 80.03 1008.24 164.41 1217.75 164.41 1427.26 164.41 1530.56 94.65 1636.77 94.41"
+        stroke="rgba(194, 33, 33, 0.58)"
+        strokeWidth="1"
+      />
+    </g>
+    <defs>
+      <mask id="SvgjsMask1000">
+        <rect width="1440" height="560" fill="#ffffff" />
+      </mask>
+    </defs>
+  </svg>
+</div>
 
-      </div>
+
 
       <div className="relative z-10">
         <h1 className="border-b-2 text-center p-4 font-bold hover:text-green-300 text-2xl sm:text-3xl md:text-4xl same">
