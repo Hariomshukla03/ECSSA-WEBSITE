@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/Data";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const AdminTeacher = () => {
   const [message, setMessage] = useState("");
@@ -23,6 +24,7 @@ const AdminTeacher = () => {
 
   const handleTeacher = async (e) => {
     e.preventDefault();
+    const tid=toast.loading("Hold on..");
     try {
       if (!Array.isArray(teacher)) {
         const res = await axios.patch(
@@ -30,13 +32,13 @@ const AdminTeacher = () => {
           { teacherName, teacherPosition, teacherImageUrl },
           { withCredentials: true }
         );
-        setMessage(res.data.message);
+      toast.success(res.data.message,{id:tid})
         setTimeout(() => {
           navigate("/about");
         }, 2000);
       } else {
         if (!teacherName || !teacherPosition || !teacherImageUrl) {
-    setMessage("First fill the detail");
+    toast.error( "Fill all the Detail",{ id: tid })
     return;
   }
         const res = await axios.post(
@@ -44,7 +46,7 @@ const AdminTeacher = () => {
           { teacherName, teacherPosition, teacherImageUrl },
           { withCredentials: true }
         );
-        setMessage(res.data.message);
+        toast.success(res.data.message,{id:tid})
         setTimeout(() => {
           navigate("/about");
         }, 2000);
@@ -53,7 +55,8 @@ const AdminTeacher = () => {
       if (err.status == 401) {
         navigate("/login");
       }
-      setMessage(err.response?.data?.message || "Something went wrong");
+      toast.error(err?.response?.data?.message || "Something went wrong",{ id: tid })
+
     }
   };
   const handleDrag=(e)=>{

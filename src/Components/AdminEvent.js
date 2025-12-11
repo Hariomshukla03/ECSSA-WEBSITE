@@ -3,6 +3,7 @@ import { BASE_URL } from "../utils/Data";
 import { useState, useEffect, useRef } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const AdminEvent = () => {
   const [eventName, setEventName] = useState("");
@@ -57,6 +58,7 @@ const AdminEvent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const tid=toast.loading("Hold on...");
     try {
       if (!Array.isArray(event)) {
         const res = await axios.patch(
@@ -72,7 +74,7 @@ const AdminEvent = () => {
           },
           { withCredentials: true }
         );
-        setMessage(res.data.message);
+        toast.success('Added Successfully!',{id:tid})
         setTimeout(() => {
           navigate("/announcement");
         }, 300);
@@ -84,8 +86,8 @@ const AdminEvent = () => {
             !eventReq||
             !photoUrl||
             !eventForm) {
-    setMessage("First Fill All The  detail");
-    return;
+          toast.error( "Fill all the Detail",{ id: tid })
+          return;
   }
         const res = await axios.post(
           `${BASE_URL}/event/add`,
@@ -100,12 +102,15 @@ const AdminEvent = () => {
           },
           { withCredentials: true }
         );
-        setMessage(res.data.message);
+        setMessage();
+        toast.success( res.data.message,{ id: tid })
+        
         
       }
     } catch (err) {
       console.log(err);
-      setMessage(err.response?.data?.message || "Something went wrong");
+      setMessage();
+      toast.error( err.response?.data?.message || "Something went wrong",{ id: tid })
       if (err.response?.status === 401) {
         navigate("/login");
       }
@@ -255,7 +260,7 @@ const AdminEvent = () => {
             </button>
           </div>
         </form>
-        {message && <h1 className="text-red-500 text-xl">{message}</h1>}
+        {/* {message && <h1 className="text-red-500 text-xl">{message}</h1>} */}
       </div>
     </div>
   );

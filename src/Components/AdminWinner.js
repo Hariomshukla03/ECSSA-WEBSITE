@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/Data";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const AdminWinner = () => {
   const [message, setMessage] = useState("");
@@ -26,6 +27,7 @@ const AdminWinner = () => {
 
   const handleWinner = async (e) => {
     e.preventDefault();
+    const tid=toast.loading("Hold on...");
     try {
       if (!Array.isArray(Winner)) {
         const res = await axios.patch(
@@ -33,7 +35,7 @@ const AdminWinner = () => {
           { winnerName, winnerProfileUrl, winnerEvent, winnerYear },
           { withCredentials: true }
         );
-        setMessage(res.data.message);
+        toast.success(res.data.message,{id:tid})
         setTimeout(() => {
           navigate("/winner");
         }, 2000);
@@ -41,7 +43,7 @@ const AdminWinner = () => {
             !winnerProfileUrl||
             !winnerEvent||
             !winnerYear) {
-    setMessage("First Fill All The  detail");
+    toast.error( "Fill all the Detail",{ id: tid })
     return;
   }
         const res = await axios.post(
@@ -49,7 +51,7 @@ const AdminWinner = () => {
           { winnerName, winnerProfileUrl, winnerEvent, winnerYear },
           { withCredentials: true }
         );
-        setMessage(res.data.message);
+        toast.success(res.data.message,{id:tid})
         setTimeout(() => {
           navigate("/winner");
         }, 2000);
@@ -58,7 +60,8 @@ const AdminWinner = () => {
       if (err.status == 401) {
         navigate("/login");
       }
-      setMessage(err.response?.data?.message || "Something went wrong");
+      toast.error(err?.response?.data?.message || "Something went wrong",{ id: tid })
+
     }
   };
   const handleDrag=async(e)=>{

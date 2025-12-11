@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../utils/loginSlice";
 import Particles from "./Particles";
+import toast from "react-hot-toast";
 
 const Form = () => {
   const navigate = useNavigate();
@@ -13,23 +14,36 @@ const Form = () => {
   const loginAdmin = useSelector((store) => store.loginAdmin);
   const [emailId, SetEmailId] = useState("");
   const [password, SetPassword] = useState("");
-  const [msg, SetMsg] = useState("");
+  const [loading, Setloading] = useState(false);
   const [forget, SetForget] = useState(false);
-  
 
   const HandleLogin = async (event) => {
+    if(!emailId || !password){
+      toast.error("Please fill all the field");
+      return;
+    }
     event.preventDefault();
+    const toastid=toast.loading("Logging in...");
+    if(loading) return;
     try {
-      SetMsg("");
+      Setloading(true)
       const res = await axios.post(
         BASE_URL + "/login",
         { emailId, password },
         { withCredentials: true }
       );
-      navigate("/admindash");
+      
+      toast.success('Login Successfully!',{id:toastid})
+      setTimeout(() => {
+        navigate("/admindash");
+        
+      }, 1500);
+
       dispatch(login(true));
     } catch (err) {
-      SetMsg(err?.response?.data?.message);
+      Setloading(false)
+      toast.error(err?.response?.data?.message || "Something went wrong",{ id: toastid })
+
       if (err?.response?.status === 401) {
         navigate("/login");
       }
@@ -38,16 +52,19 @@ const Form = () => {
 
   const handleForgetPass = async (event) => {
     event.preventDefault();
-    SetMsg("");
+    
+    const tid=toast.loading("Wait! Sending Link")
     try {
       const res = await axios.post(
         BASE_URL + "/forget-password",
         { emailId },
         { withCredentials: true }
       );
-      SetMsg(res?.data?.message);
-    } catch (error) {
-      SetMsg(error?.response?.data?.message);
+      // SetMsg(res?.data?.message);
+      toast.success("Password reset link sent to your email",{id:tid})
+    } catch (err) {
+     toast.error(err?.response?.data?.message || "Something went wrong",{id:tid})
+
     }
   };
 
@@ -67,7 +84,7 @@ const Form = () => {
       </div>
 
       <StyledWrapper>
-        {msg && (
+        {/* {msg && (
           <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex w-[250px] h-20 overflow-hidden bg-white shadow-lg rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" height="80" width="12">
               <path
@@ -99,7 +116,7 @@ const Form = () => {
               </p>
             </div>
           </div>
-        )}
+        )} */}
 
         <form className="form">
           <span className="input-span">

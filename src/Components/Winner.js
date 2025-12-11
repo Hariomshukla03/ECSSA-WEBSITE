@@ -32,7 +32,7 @@ const Winner = () => {
 
   useEffect(() => {
     fetchWinners();
-  },[winner]);
+  },[]);
 
   // Delete winner
   const handleDelete = async (id) => {
@@ -58,8 +58,9 @@ const Winner = () => {
       const res = await axios.get(`${BASE_URL}/winner/view/${id}`, {
         withCredentials: true,
       });
-      if(res){
+      if(res && res.data){
         dispatch(editWinner(res.data))
+        
         navigate("/admindash")
 
       }

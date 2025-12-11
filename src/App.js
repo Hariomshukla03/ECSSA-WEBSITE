@@ -17,6 +17,7 @@ import DeadshotWinner from "./Components/DeadshotWinner.js";
 import AdminDash from "./Components/AdminDash.js";
 import Winner from "./Components/Winner.js";
 import ForgetPas from "./Components/ForgetPas.js";
+import { Toaster } from "react-hot-toast";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -69,6 +70,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="bg-black text-white">
+      <Toaster position="top-center" reverseOrder={false} />
       <RouterProvider router={router} />
     </div>
   

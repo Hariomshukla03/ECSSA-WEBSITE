@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/Data";
 import { useDispatch, useSelector } from "react-redux";
 import { members } from "../utils/memberSlice";
+import toast from "react-hot-toast";
 
 const AdminMember = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const AdminMember = () => {
   const dispatch = useDispatch();
   const handleMember = async (e) => {
     e.preventDefault();
+    const tid=toast.loading("Hold on...");
     try {
       if (!Array.isArray(member)) {
         const res = await axios.patch(
@@ -23,11 +25,12 @@ const AdminMember = () => {
           { memberName, memberPosition, memberImageUrl },
           { withCredentials: true }
         );
-        setMessage(res.data.message);
+        toast.success(res.data.message,{id:tid})
         navigate("/about");
       } else {
         if (!memberName || !memberPosition || !preview) {
-    setMessage("First fill the detail");
+   
+    toast.error( "Fill all the Detail",{ id: tid})
     return;
   }
         const res = await axios.post(
@@ -40,7 +43,7 @@ const AdminMember = () => {
           { withCredentials: true }
         );
         dispatch(members(res.data));
-        setMessage(res.data.message);
+        toast.success(res.data.message,{id:tid})
         setTimeout(() => {
           navigate("/about");
         }, 2000);
@@ -49,7 +52,9 @@ const AdminMember = () => {
       if (err.status == 401) {
         navigate("/login");
       }
-      setMessage(err.response?.data?.message || "Something went wrong");
+      // setMessage(err.response?.data?.message || "Something went wrong");
+      toast.error(err?.response?.data?.message || "Something went wrong",{ id: tid })
+
     }
   };
   useEffect(() => {
@@ -170,7 +175,7 @@ const AdminMember = () => {
             </button>
           </div>
         </form>
-        {message && <h1 className="text-red-500 text-xl">{message}</h1>}
+        {/* {message && <h1 className="text-red-500 text-xl">{message}</h1>} */}
       </div>
     </div>
   );
